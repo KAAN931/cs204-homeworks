@@ -51,8 +51,14 @@ void TwoDLinkedList::add_row_sorted(string s){
             prevRow=temp;
             temp=temp->down;
         }
-        prevRow->down=newrowhead;
-        newrowhead->down=temp;
+        if (prevRow == nullptr) {
+            newrowhead->down = head;
+            head = newrowhead;
+        }
+        else{
+            prevRow->down=newrowhead;
+            newrowhead->down=temp;
+        }
     }
     //the new connections will between up and down
     //one up
